@@ -1,19 +1,64 @@
 import styled from "styled-components";
+import { BsGithub } from "react-icons/bs";
+import { AiTwotoneMail } from "react-icons/ai";
 
 const AboutContainer = styled.div`
   margin: 0 auto;
   width: 100%;
   max-width: 1024px;
-  background-color: bisque;
-  height: 1200px;
+
+  height: 1000px;
   margin-top: 200px;
+  display: flex;
+  justify-content: space-around;
 `;
 
-const Skills = styled.ul``;
-const Skill = styled.li``;
-const DivisionLine = styled.hr``;
+const Skills = styled.ul`
+  width: 50%;
+  height: 800px;
+  padding: 0;
+  background-color: beige;
+  font-size: 1.5rem;
+  list-style: none;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+`;
+const Skill = styled.li`
+  margin: 10px;
+`;
+const DivisionLine = styled.hr`
+  width: 80%;
+  height: 3px;
+`;
 
-const Contact = styled.div``;
+const ContactContainer = styled.ul`
+  top: 40%;
+  position: relative;
+  width: 45%;
+  height: 200px;
+  background-color: bisque;
+  list-style: none;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  gap: 20px;
+`;
+
+const Contact = styled.li`
+  display: flex;
+  font-size: 20px;
+
+  .icon {
+    margin-right: 20px;
+  }
+`;
+const ContactIcon = styled.div``;
+const ContactInformation = styled.div``;
+
+const GITHUB_ADDR = "https://github.com/richcire";
+const EMAIL_ADDR = "rixhcire@gmail.com";
 
 export default function About() {
   return (
@@ -35,7 +80,24 @@ export default function About() {
         <Skill>Lua(Roblox Studio)</Skill>
         <Skill>Dart(Flutter)</Skill>
       </Skills>
-      <Contact></Contact>
+      <ContactContainer>
+        <Contact>
+          <ContactIcon className="icon">
+            <BsGithub />
+          </ContactIcon>
+          <ContactInformation>
+            <a href={GITHUB_ADDR}>{GITHUB_ADDR}</a>
+          </ContactInformation>
+        </Contact>
+        <Contact>
+          <ContactIcon className="icon">
+            <AiTwotoneMail />
+          </ContactIcon>
+          <ContactInformation>
+            <a href={EMAIL_ADDR}>{EMAIL_ADDR}</a>
+          </ContactInformation>
+        </Contact>
+      </ContactContainer>
     </AboutContainer>
   );
 }
