@@ -6,7 +6,6 @@ const AboutContainer = styled.div`
   margin: 0 auto;
   width: 100%;
   max-width: 1024px;
-
   height: 1000px;
   margin-top: 200px;
   display: flex;
@@ -34,8 +33,7 @@ const DivisionLine = styled.hr`
 `;
 
 const ContactContainer = styled.ul`
-  top: 40%;
-  position: relative;
+  margin-top: 500px;
   width: 45%;
   height: 200px;
   background-color: bisque;
@@ -93,9 +91,7 @@ export default function About() {
           <ContactIcon className="icon">
             <AiTwotoneMail />
           </ContactIcon>
-          <ContactInformation>
-            <a href={EMAIL_ADDR}>{EMAIL_ADDR}</a>
-          </ContactInformation>
+          <ContactInformation>{EMAIL_ADDR}</ContactInformation>
         </Contact>
       </ContactContainer>
     </AboutContainer>
