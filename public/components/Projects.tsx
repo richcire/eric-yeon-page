@@ -72,7 +72,7 @@ export default function Projects() {
   return (
     <>
       <ProjectsSection first={PROJECTS_LIST[0]} second={PROJECTS_LIST[1]} />
-      <div>hello world</div>
+      <ProjectsSection first={PROJECTS_LIST[2]} second={PROJECTS_LIST[3]} />
     </>
   );
 }

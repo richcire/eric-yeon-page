@@ -84,13 +84,16 @@ export default function ProjectsSection({ first, second }: IProjectSection) {
   return (
     <>
       <CardsContainer>
-        {PROJECTS_LIST.slice(0, 2).map((project) => (
-          <ProjectCard
-            key={project.titleEng}
-            project={project}
-            onCardClick={onCardClick}
-          />
-        ))}
+        <ProjectCard
+          key={first.titleEng}
+          project={first}
+          onCardClick={onCardClick}
+        />
+        <ProjectCard
+          key={second.titleEng}
+          project={second}
+          onCardClick={onCardClick}
+        />
       </CardsContainer>
       <ProjectDetailContainer
         animate={isOpen ? "open" : "closed"}
