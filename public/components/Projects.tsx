@@ -1,15 +1,9 @@
 import { motion } from "framer-motion";
+import { useState } from "react";
 import styled from "styled-components";
-import {
-  PERSONAL_COLOR_DESCRIPTION_ENG,
-  PERSONAL_COLOR_DESCRIPTION_KOR,
-  PERSONAL_COLOR_GITHUB_LINK,
-  PERSONAL_COLOR_PAGE_LINK,
-  PERSONAL_COLOR_SKILL_STACK,
-  PERSONAL_COLOR_TITLE_ENG,
-  PERSONAL_COLOR_TITLE_KOR,
-  PERSONAL_COLOR_TYPESCRIPT_VER_GITHUB_LINK,
-} from "../img/constants";
+import { PROJECTS_LIST } from "../constants";
+import ProjectCard from "./ProjectCard";
+import ProjectsSection from "./ProjectsSection";
 
 const ProjectsContainer = styled.div`
   margin: 0 auto;
@@ -20,58 +14,21 @@ const ProjectsContainer = styled.div`
   column-gap: 20px;
 `;
 
-const ProjectCard = styled(motion.div)`
-  height: 300px;
-  margin: 20px;
-  position: relative;
-
-  :hover {
-    div {
-      display: block;
-    }
-  }
-`;
-
-const CardImage = styled.img`
-  height: 100%;
-  width: 100%;
-  object-fit: cover;
-  border-radius: 40px;
-  position: absolute;
-  z-index: 1;
-`;
-const CardLabel = styled.div`
-  position: absolute;
-  width: 100%;
-  height: 100%;
-  background-color: rgba(0, 0, 0, 0.4);
-  border-radius: 40px;
-  display: none;
-  z-index: 1;
-`;
-
-interface ITitle {
-  language: "Eng" | "Kor";
-}
-
-const Title = styled.div<ITitle>`
-  color: azure;
-  font-size: ${(props) => (props.language === "Eng" ? "2rem" : "1rem")};
-  margin: 15px;
-`;
-
-const ProjectDetailContainer = styled.div`
+const ProjectDetailContainer = styled(motion.div)`
   margin: 0 auto;
   width: 100%;
   max-width: 1024px;
   height: 700px;
   background-color: rgba(0, 0, 0, 0.4);
-  padding: 50px;
+  padding: 10px;
   border-radius: 40px;
-  position: relative;
 `;
 
-const DetailDescription = styled.div`
+const DescriptionContainer = styled(motion.div)`
+  margin: 30px;
+`;
+
+const DetailDescription = styled(motion.div)`
   white-space: pre-wrap;
   font-size: 1.4rem;
   margin-bottom: 50px;
@@ -79,51 +36,43 @@ const DetailDescription = styled.div`
   line-height: 170%;
   margin: 20px;
 `;
-const ProjectLinkContainer = styled.div`
-  position: absolute;
-  bottom: 0;
-  right: 0;
-  margin-bottom: 20px;
-  margin-right: 40px;
+const ProjectLinkContainer = styled(motion.div)`
+  margin: 30px;
 `;
-const ProjectLink = styled.a`
+const ProjectLink = styled(motion.a)`
   display: block;
   color: whitesmoke;
   font-size: 1rem;
   margin-top: 10px;
+  margin-left: 20px;
 `;
 
+const ProjectDetailVariants = {
+  open: {
+    height: "auto",
+    transition: {
+      type: "tween",
+      staggerChildren: 0.5,
+    },
+  },
+  closed: { height: 0 },
+};
+
+const ChildVariants = {
+  open: { opacity: 1, transition: {} },
+  closed: { opacity: 0 },
+};
+
 export default function Projects() {
+  const [isOpen, setIsOpen] = useState(false);
+  const onProjectClick = () => {
+    setIsOpen((prev) => !prev);
+  };
+
   return (
     <>
-      <ProjectsContainer>
-        <ProjectCard whileHover={{ scale: 1.1 }}>
-          <CardImage src="img/personal_color.png" />
-          <CardLabel>
-            <Title language="Eng">{PERSONAL_COLOR_TITLE_ENG}</Title>
-            <Title language="Kor">{PERSONAL_COLOR_TITLE_KOR}</Title>
-          </CardLabel>
-        </ProjectCard>
-        <ProjectCard>
-          <CardImage src="img/personal_color.png" />
-        </ProjectCard>
-      </ProjectsContainer>
-      <ProjectDetailContainer>
-        <DetailDescription>{PERSONAL_COLOR_DESCRIPTION_ENG}</DetailDescription>
-        <DetailDescription>{PERSONAL_COLOR_DESCRIPTION_KOR}</DetailDescription>
-        <DetailDescription>{PERSONAL_COLOR_SKILL_STACK}</DetailDescription>
-        <ProjectLinkContainer>
-          <ProjectLink href={PERSONAL_COLOR_PAGE_LINK}>
-            {`WebPage -> ${PERSONAL_COLOR_PAGE_LINK}`}
-          </ProjectLink>
-          <ProjectLink href={PERSONAL_COLOR_GITHUB_LINK}>
-            {`Github  -> ${PERSONAL_COLOR_GITHUB_LINK}`}
-          </ProjectLink>
-          <ProjectLink href={PERSONAL_COLOR_TYPESCRIPT_VER_GITHUB_LINK}>
-            {`React&TypeScript ver. Github -> ${PERSONAL_COLOR_TYPESCRIPT_VER_GITHUB_LINK}`}
-          </ProjectLink>
-        </ProjectLinkContainer>
-      </ProjectDetailContainer>
+      <ProjectsSection first={PROJECTS_LIST[0]} second={PROJECTS_LIST[1]} />
+      <div>hello world</div>
     </>
   );
 }
