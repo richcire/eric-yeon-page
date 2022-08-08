@@ -21,19 +21,25 @@ const NavContainer = styled.div`
   align-items: flex-end;
 `;
 
-const NavLabel = styled.div`
+const NavLabel = styled.button`
+  background: none;
+  border: none;
   font-size: 23px;
   text-align: center;
   margin-bottom: 10px;
 `;
 
-export default function NavBar() {
+interface INavBar {
+  moveScrollToRef(checkPoint: number): void;
+}
+
+export default function NavBar({ moveScrollToRef }: INavBar) {
   return (
     <Bar>
       <NavContainer>
-        <NavLabel>Home</NavLabel>
-        <NavLabel>About</NavLabel>
-        <NavLabel>Projects</NavLabel>
+        <NavLabel onClick={() => moveScrollToRef(0)}>Home</NavLabel>
+        <NavLabel onClick={() => moveScrollToRef(1)}>About</NavLabel>
+        <NavLabel onClick={() => moveScrollToRef(2)}>Projects</NavLabel>
       </NavContainer>
     </Bar>
   );
