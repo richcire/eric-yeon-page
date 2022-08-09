@@ -1,6 +1,15 @@
+import {
+  motion,
+  useScroll,
+  useSpring,
+  useTransform,
+  useVelocity,
+  useViewportScroll,
+} from "framer-motion";
+import { useEffect, useState } from "react";
 import styled from "styled-components";
 
-const Bar = styled.div`
+const Bar = styled(motion.div)`
   width: 100%;
   background-color: #c6cacf;
   height: 80px;
@@ -34,8 +43,36 @@ interface INavBar {
 }
 
 export default function NavBar({ moveScrollToRef }: INavBar) {
+  const { scrollYProgress } = useScroll();
+  const scrollVelocity = useVelocity(scrollYProgress);
+
+  const barOpacity = useTransform<number, 1 | 0>(
+    [scrollYProgress, scrollVelocity],
+    ([progress, velocity]) => {
+      if (progress < 0.3) {
+        console.log(velocity);
+        return 1;
+      } else if (velocity < 0) {
+        return 1;
+      } else {
+        return 0;
+      }
+    }
+  );
+
+  const spring = useSpring(barOpacity, {
+    stiffness: 800,
+    damping: 100,
+    bounce: 0,
+  });
+
   return (
-    <Bar>
+    <Bar
+      style={{
+        opacity: spring,
+      }}
+      whileHover={{ opacity: 1 }}
+    >
       <NavContainer>
         <NavLabel onClick={() => moveScrollToRef(0)}>Home</NavLabel>
         <NavLabel onClick={() => moveScrollToRef(1)}>About</NavLabel>
