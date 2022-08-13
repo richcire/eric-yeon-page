@@ -53,11 +53,13 @@ const ContactContainer = styled.ul`
 const Contact = styled.li`
   display: flex;
   font-size: 20px;
+  word-break: break-all;
   @media (max-width: 750px) {
-    font-size: 15px;
+    flex-direction: column;
   }
   @media (max-width: 630px) {
-    font-size: 12px;
+    font-size: 16px;
+    font-weight: 700;
   }
   .icon {
     margin-right: 20px;
