@@ -50,7 +50,6 @@ export default function NavBar({ moveScrollToRef }: INavBar) {
     [scrollYProgress, scrollVelocity],
     ([progress, velocity]) => {
       if (progress < 0.3) {
-        console.log(velocity);
         return 1;
       } else if (velocity < 0) {
         return 1;

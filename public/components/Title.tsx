@@ -1,5 +1,6 @@
 import styled from "styled-components";
 import { motion } from "framer-motion";
+import { useMediaQuery } from "react-responsive";
 
 const TitleContainer = styled.div`
   margin-top: 80px;
@@ -18,6 +19,15 @@ const NameIntroduce = styled.div`
   font-size: 6rem;
   text-align: end;
   padding-right: 30px;
+  @media (max-width: 1250px) {
+    font-size: 5rem;
+  }
+  @media (max-width: 1060px) {
+    font-size: 4rem;
+  }
+  @media (max-width: 755px) {
+    font-size: 3rem;
+  }
 `;
 
 const Name = styled(motion.div)`
@@ -36,18 +46,31 @@ const JobIntroduce = styled.div`
   font-size: 6rem;
   text-align: end;
   padding-right: 30px;
+  @media (max-width: 1250px) {
+    font-size: 5rem;
+  }
+  @media (max-width: 1060px) {
+    font-size: 4rem;
+  }
 `;
 
 const Job = styled(motion.div)`
   background-color: beige;
   font-size: 6rem;
   padding-left: 20px;
+  @media (max-width: 1250px) {
+    font-size: 5rem;
+  }
+  @media (max-width: 1060px) {
+    font-size: 4rem;
+  }
 `;
 
 export default function Title() {
   return (
     <TitleContainer>
       <NameContainer>
+        {/* {isDesktopOrLaptop && <NameIntroduce>Hi! My name is</NameIntroduce>} */}
         <NameIntroduce>Hi! My name is</NameIntroduce>
         <Name
           initial={{ opacity: 0, y: 100 }}

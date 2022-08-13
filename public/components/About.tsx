@@ -47,7 +47,12 @@ const ContactContainer = styled.ul`
 const Contact = styled.li`
   display: flex;
   font-size: 20px;
-
+  @media (max-width: 750px) {
+    font-size: 15px;
+  }
+  @media (max-width: 630px) {
+    font-size: 12px;
+  }
   .icon {
     margin-right: 20px;
   }
