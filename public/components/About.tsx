@@ -23,6 +23,9 @@ const Skills = styled.ul`
   flex-direction: column;
   justify-content: center;
   align-items: center;
+  @media (prefers-color-scheme: dark) {
+    background-color: #343434;
+  }
 `;
 const Skill = styled.li`
   margin: 10px;
@@ -42,6 +45,9 @@ const ContactContainer = styled.ul`
   flex-direction: column;
   justify-content: center;
   gap: 20px;
+  @media (prefers-color-scheme: dark) {
+    background-color: #ffffff9f;
+  }
 `;
 
 const Contact = styled.li`

@@ -28,6 +28,10 @@ const NameIntroduce = styled.div`
   @media (max-width: 755px) {
     font-size: 3rem;
   }
+
+  @media (prefers-color-scheme: dark) {
+    background-color: #343434;
+  }
 `;
 
 const Name = styled(motion.div)`
@@ -63,6 +67,9 @@ const Job = styled(motion.div)`
   }
   @media (max-width: 1060px) {
     font-size: 4rem;
+  }
+  @media (prefers-color-scheme: dark) {
+    background-color: #343434;
   }
 `;
 
