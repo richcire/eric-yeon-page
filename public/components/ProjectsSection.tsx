@@ -11,6 +11,10 @@ const CardsContainer = styled.div`
   display: grid;
   grid-template-columns: 1fr 1fr;
   column-gap: 20px;
+  @media (max-width: 750px) {
+    display: flex;
+    flex-direction: column;
+  }
 `;
 
 const ProjectDetailContainer = styled(motion.div)`
@@ -19,7 +23,7 @@ const ProjectDetailContainer = styled(motion.div)`
   max-width: 1024px;
   height: 700px;
   background-color: rgba(0, 0, 0, 0.4);
-  padding: 10px;
+
   border-radius: 40px;
 `;
 
@@ -34,9 +38,11 @@ const DetailDescription = styled(motion.div)`
   color: whitesmoke;
   line-height: 170%;
   margin: 20px;
+  padding-top: 40px;
 `;
 const ProjectLinkContainer = styled(motion.div)`
   margin: 30px;
+  padding-bottom: 20px;
 `;
 const ProjectLink = styled(motion.a)`
   display: block;
@@ -44,6 +50,7 @@ const ProjectLink = styled(motion.a)`
   font-size: 1rem;
   margin-top: 10px;
   margin-left: 20px;
+  padding-bottom: 20px;
 `;
 
 const ProjectDetailVariants = {
