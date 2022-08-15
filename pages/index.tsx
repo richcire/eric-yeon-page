@@ -4,6 +4,7 @@ import { RecoilRoot } from "recoil";
 import About from "../public/components/About";
 import NavBar from "../public/components/NavBar";
 import Projects from "../public/components/Projects";
+import Seo from "../public/components/Seo";
 import Title from "../public/components/Title";
 import styles from "../styles/Home.module.css";
 
@@ -14,6 +15,7 @@ const Home: NextPage = () => {
   };
   return (
     <RecoilRoot>
+      <Seo />
       <NavBar moveScrollToRef={moveScrollToRef} />
       <div ref={(elem) => (checkPointRef.current[0] = elem)} />
       <Title />
