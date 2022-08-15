@@ -39,6 +39,7 @@ const DetailDescription = styled(motion.div)`
   line-height: 170%;
   margin: 20px;
   padding-top: 40px;
+  word-break: normal;
 `;
 const ProjectLinkContainer = styled(motion.div)`
   margin: 30px;

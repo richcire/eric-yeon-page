@@ -48,6 +48,9 @@ const ContactContainer = styled.ul`
   @media (prefers-color-scheme: dark) {
     background-color: #ffffff9f;
   }
+  @media (max-width: 600px) {
+    padding-left: 10px;
+  }
 `;
 
 const Contact = styled.li`
